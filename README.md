@@ -20,5 +20,5 @@ git
 5. Execute "./yuzu-canary/build/bin/yuzu" to launch Yuzu.
 
 # Updating Yuzu
-To update Yuzu run: "sudo sh ./installYuzu.sh" again. This will automatically uninstall and reinstall the latest version of Yuzu.
+To update Yuzu run: "sudo sh ./installYuzu.sh" again. This will automatically uninstall and reinstall the latest version of Yuzu. Note: User specific data (game saves, setting, controller profiles) will NOT be lost when Yuzu is updated.
 

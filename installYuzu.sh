@@ -1,17 +1,33 @@
-echo Installing latest YUZU canary build...
+#!/usr/bin/env bash
+# exit on error
+set -e
 
-sudo rm -rf yuzu-canary
+echo Building latest YUZU canary...
 
-sudo git clone --recursive https://github.com/yuzu-emu/yuzu-canary.git
+if [ ! -d yuzu-canary ]
+then
+    git clone --depth=1 --recursive \
+        https://github.com/yuzu-emu/yuzu-canary.git \
+        yuzu-canary
+    cd yuzu-canary
+else
+    cd yuzu-canary
+    git pull origin
+    git submodule update --init
+fi
 
-cd yuzu-canary
+if [ -d build ]
+then
+    rm -rf build
+fi
 
+mkdir build
+cd build
 
-sudo mkdir build && cd build
-sudo cmake .. -DCMAKE_BUILD_TYPE=Release
-sudo make
-sudo make install
+cmake ../ -DCMAKE_BUILD_TYPE=Release
 
-echo Install Complete!
+# enable multithreading
+make -j$(nproc)
 
+echo Build Complete!
 echo Executable: ./yuzu-canary/build/bin/yuzu

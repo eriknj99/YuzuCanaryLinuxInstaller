@@ -1,4 +1,6 @@
 # YuzuCanaryLinuxInstaller
+# <DEPRICATED> I use the AUR version now, so I don't maintain this at all. 
+
 An installation script for The switch emulator "Yuzu" on linux. This script will automatically pull the latest version of Yuzu from its source and install it.
 
 All credit to the developers of the amazing Yuzu Emulator!
